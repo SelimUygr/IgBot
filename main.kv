@@ -1,0 +1,182 @@
+#:import utils kivy.utils
+#:import Factory kivy.factory.Factory
+
+<LoginScreen>:
+    name: "_login_screen_"
+    canvas:
+        Color:
+            rgb:
+                utils.get_color_from_hex("#8c66ff")
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    GridLayout:
+        size_hint: .6,.1
+        pos_hint: {"top":.5,"right":.8}
+        cols:2
+
+        Button:
+            background_color: utils.get_color_from_hex("#FF3300")
+            text:
+                "Giriş"
+            on_press: root.login()
+        
+        Button:
+            background_color: utils.get_color_from_hex("#FF3300")
+            text:
+                "Çıkış"
+            on_press: root.quit()
+
+    GridLayout:
+        size_hint: .8,.15
+        pos_hint: {"top":.7,"right":.83}
+        rows: 3
+        cols: 2
+        Label:
+            text:
+                "Kullanıcı Adı:"
+        TextInput:
+            id: ussername
+            multiline: False
+
+        Label:
+            text:
+                "Şifre"
+            
+        TextInput:
+            id: passsword
+            multiline: False
+            password: True
+
+
+<MainScreen>:
+    name: "_login_screen_"
+    canvas:
+        Color:
+            rgb:
+                utils.get_color_from_hex("#8c66ff")
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    name: "_main_screen_"
+    GridLayout:
+        size_hint: .3,.3
+        pos_hint: {"top":.7,"right":.95}
+        rows: 4
+        
+        Button:
+            background_color: utils.get_color_from_hex("#FF3300")
+            text:
+                "Önerilenlerden Takip"
+            on_press: root.recommended_follow()
+
+        Button:
+            background_color: utils.get_color_from_hex("#FF3300")
+            text:
+                "Takip Edilen Temizliği"
+            on_press: root.clean_unfollowers()
+
+        Button:
+            background_color: utils.get_color_from_hex("#FF3300")
+            text:
+                "Seçilen Sayfa Takipçileri"
+            on_press: root.hashtag_popup_start()
+
+        Button:
+            background_color: utils.get_color_from_hex("#FF3300")
+            text:
+                "Çıkış"
+            on_press: root.quit()
+
+    GridLayout:
+        size_hint: .3,.3
+        pos_hint: {"top":.7,"right":.5}
+        rows: 5
+        Label:
+            text:
+                "Bu buton önerilenlere gider ve herkesi takip eder!"
+
+        Label:
+            text:
+                "Bu buton seni takip etmeyenleri bulur ve temizler!"
+
+        Label:
+            text:
+                "Bu buton girilen hasthagden takipçileri takip eder!"
+        
+        Label:
+            text:
+                "Çıkış butonu aplikasyonu kapatır!"
+
+<HashtagPopupScreen>:
+    canvas:
+        Color:
+            rgb:
+                utils.get_color_from_hex("#8c66ff")
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    name: "_hashtag_popup_screen_"
+    GridLayout:
+        size_hint: .75,.1
+        pos_hint: {"top":.7,"right":.8}
+        cols: 2
+        Label:
+            text:
+                "Sayfa adını giriniz:"
+        TextInput:
+            id: hashtag
+            multiline: False
+
+    GridLayout:
+        cols:2
+        size_hint: .5,.1
+        pos_hint: {"top":.5,"right":.8}
+        Button:
+            background_color: utils.get_color_from_hex("#FF3300")
+            text: 
+                "Ok"
+            on_press: root.get_hashtag()
+        
+        Button:
+            background_color: utils.get_color_from_hex("#FF3300")
+            text:
+                "İptal"
+            on_press: root.cancel()
+
+<CleanAlwaysPopup>:
+    name: "_clean_always_popup_"
+    canvas:
+        Color:
+            rgb:
+                utils.get_color_from_hex("#8c66ff")
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    GridLayout:
+        rows:1
+        cols:2
+        size_hint: .5,.08
+        pos_hint:{"top":.6,"right":.8}
+        Label:
+            text:
+                "Günlük takipten çıkartma limiti:"
+        TextInput:
+            id: limitation
+            multiline: False
+    GridLayout:
+        rows:1
+        cols:2
+        size_hint: .5,.1
+        pos_hint:{"top":.5,"right":.8}
+        Button:
+            text:
+                "Sürekli Takip Et"
+            on_press: root.always()
+        Button:
+            text:
+                "İptal"
+            on_press: root.cancel()
+    
