@@ -21,7 +21,8 @@ class cleaner:
                 fc.write(str(followers_count))
             print(followers_count)
             print(len(followers_list))
-	    print(type(followers_list))
+        print(type(followers_list))
+
 
         # Set the for loop
         if len(followers_list) == 0:

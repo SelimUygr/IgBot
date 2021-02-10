@@ -35,8 +35,8 @@ class starting:
 
     #SET UP EVERYTHING AND GO TO HOMEPAGE OF IG OF THE USER
     def goToMainPage(self):
-        WebDriverWait(self.driver,100).until(EC.visibility_of_element_located((By.XPATH,'//*[@id="react-root"]/section/main/div/div/div/div/button'))).click() 
-        sleep(3)
-        self.driver.find_element_by_xpath('/html/body/div[4]/div/div/div').find_element_by_tag_name('button').click()
+        WebDriverWait(self.driver,100).until(EC.visibility_of_element_located((By.XPATH,'/html/body/div[4]/div/div/div/div[3]/button[2]'))).click() 
+        # sleep(3)
+        # self.driver.find_element_by_xpath('/html/body/div[4]/div/div/div').find_element_by_tag_name('button').click()
 
 #✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓     START ALL DONE   ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓
